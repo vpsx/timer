@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    // timer function
     function startTimer(duration, display) {
         var timer = duration, minutes, seconds;
         var refresh = setInterval(function () {
@@ -11,9 +10,10 @@ $(document).ready(function() {
 
             var output = minutes + " : " + seconds;
             display.text(output);
-            $("title").html(output + " - TimerTimer");
+            $("title").html(output + " - Мат-таймер");
 
-            if (--timer < 0) {
+	    //TODO: Obviously, change this logic...
+            if (++timer < 0) {
                 display.text("Time's Up!");
                 clearInterval(refresh);  // exit refresh loop
                 var music = $("#over_music")[0];
@@ -27,10 +27,6 @@ $(document).ready(function() {
     // start timer
     jQuery(function ($) {
         var display = $('#time');
-        startTimer(Minutes, display);
+        startTimer(Seconds, display);
     });
-
-    // show help information
-    $('#help-info').hide();
-    $('#help-btn').hover( function() { $('#help-info').toggle(); } );
 })
